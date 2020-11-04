@@ -79,6 +79,7 @@
         android:background="@drawable/degradados"
         android:drawableRight="@drawable/icon_save"
         android:text="@string/btn_guardar"
+        android:onClick="income"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
