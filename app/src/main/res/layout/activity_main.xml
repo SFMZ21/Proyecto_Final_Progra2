@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFE9EAEA"
+        android:backgroundTint="#FFE9EAEA">
+
+        <Button
+            android:id="@+id/btn_movimientos"
+            android:layout_width="110dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/degradado3"
+            android:drawableTop="@drawable/btn3_icon3"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/btn3_movimientos"
+            android:textColor="@android:color/background_light"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_gasto"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/btn_ingreso"
+            android:layout_width="90dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/degradado2"
+            android:drawableTop="@drawable/btn1_icon1"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/btn1_ingresos"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_gasto"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_inicio"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/btn_inicio"
+            android:layout_width="90dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/degradados"
+            android:drawableTop="@drawable/icon_home2"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/btn4_inicio"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/btn_ingreso"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/btn4_inicio" />
+
+        <Button
+            android:id="@+id/btn_gasto"
+            android:layout_width="90dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/degradado4"
+            android:drawableTop="@drawable/btn2_icon2"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/btn2_gastos"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_movimientos"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_ingreso"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_contenedor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFE9EAEA">
+
+    </FrameLayout>
+</LinearLayout>
