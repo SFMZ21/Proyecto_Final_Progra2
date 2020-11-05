@@ -11,126 +11,75 @@
         android:id="@+id/tituloIngreso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Balance Mensual + remanentes"
+        android:layout_marginTop="25dp"
+        android:text="@string/frgInicio_txv1"
         android:textColor="#242945"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="170dp" />
+        app:layout_constraintTop_toBottomOf="@+id/frgInit_SpinTipo" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-condensed"
         android:text="@string/txtV4"
+        android:textAlignment="textEnd"
         android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:layout_editor_absoluteX="89dp" />
-
-    <TextView
-        android:id="@+id/txt_add2"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/txtV5"
-        android:textColor="#8BC34A"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/txt_add"
-        tools:layout_editor_absoluteX="327dp" />
-
-    <TextView
-        android:id="@+id/textV4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="@string/txtV2"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textV3"
-        tools:layout_editor_absoluteX="89dp" />
-
-    <TextView
-        android:id="@+id/txt"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/Text"
-        android:textColor="#F44336"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/txt_add2"
-        tools:layout_editor_absoluteX="330dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="@string/txtV3"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textV4"
-        tools:layout_editor_absoluteX="89dp" />
-
-    <TextView
-        android:id="@+id/txt_igual"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/Text1"
-        android:textColor="#3F51B5"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/txt"
-        tools:layout_editor_absoluteX="327dp" />
-
-    <TextView
-        android:id="@+id/txt_add"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="@string/txtV5"
-        android:textColor="#8BC34A"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/tituloIngreso"
-        tools:layout_editor_absoluteX="329dp" />
-
-    <TextView
-        android:id="@+id/textV3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="@string/txtV1"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/tituloIngreso"
-        tools:layout_editor_absoluteX="89dp" />
-
-    <TextView
-        android:id="@+id/txt_frg1_mes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="#2E2727"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="245dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textV4"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/txtV2"
+        android:textAlignment="textEnd"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textV3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/txtV3"
+        android:textAlignment="textEnd"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textV4" />
+
+    <TextView
+        android:id="@+id/textV3"
+        android:layout_width="110dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/txtV1"
+        android:textAlignment="textEnd"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frgInicio_SpnAnio" />
 
     <Spinner
         android:id="@+id/frgInit_SpinTipo"
@@ -144,34 +93,113 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/frgInicio_SpnAnio"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        tools:layout_editor_absoluteY="64dp" />
+        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintStart_toEndOf="@+id/frgInicio_SpnMes"
+        app:layout_constraintTop_toBottomOf="@+id/tituloIngreso" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/frgInicio_SpnMes"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        tools:layout_editor_absoluteY="64dp" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:entries="@array/meses"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="64dp" />
+        app:layout_constraintTop_toBottomOf="@+id/tituloIngreso" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/frgInic_description1"
+        android:src="@drawable/frg_inicio_add_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frgInicio_SpnAnio" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/frgInic_description1"
+        android:src="@drawable/frg_inicio_add_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/frgInic_description2"
+        android:src="@drawable/frg_inicio_remove_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/frgInic_description3"
+        android:src="@drawable/frg_inicio_equal_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/frgInic_txvIngreso"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/frgInicio_SpnAnio" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/frgInic_txvSaldo"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/frgInic_txvGasto"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/frgInic_txvSaldo"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

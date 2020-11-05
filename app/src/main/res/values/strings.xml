@@ -20,4 +20,12 @@
     <string name="frgMov_txv1">Movimientos</string>
     <string name="frgMov_txv2">Mes</string>
     <string name="frgMov_txv3">Categoría</string>
+    <string name="frgInicio_txv1">Balance mensual + remanentes</string>
+    <string name="frgInic_description1">Add symbol green</string>
+    <string name="frgInic_description2">Remove symbol red</string>
+    <string name="frgInic_description3">Equal symbol green</string>
+    <string name="frgInic_txvIngreso" />
+    <string name="frgInic_txvSaldo" />
+    <string name="frgInic_txvSaldo_Act" />
+    <string name="frgInic_txvGasto" />
 </resources>
