@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/EdTxt_Gasto_cantidad"
+        android:id="@+id/EdTxt_Ingreso_cantidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/EdText_Gasto_descripcion"
+        android:id="@+id/EdText_Ingreso_descripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -41,10 +41,10 @@
         android:hint="Descripción"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EdTxt_Gasto_cantidad" />
+        app:layout_constraintTop_toBottomOf="@+id/EdTxt_Ingreso_cantidad" />
 
     <EditText
-        android:id="@+id/EdText_Gasto_Fecha"
+        android:id="@+id/EdText_Ingreso_Fecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -53,10 +53,10 @@
         android:hint="Fecha"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EdText_Gasto_descripcion" />
+        app:layout_constraintTop_toBottomOf="@+id/EdText_Ingreso_descripcion" />
 
     <EditText
-        android:id="@+id/EdText_Gasto_Hora"
+        android:id="@+id/EdText_Ingreso_Hora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -65,10 +65,10 @@
         android:hint="Hora"
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EdText_Gasto_Fecha" />
+        app:layout_constraintTop_toBottomOf="@+id/EdText_Ingreso_Fecha" />
 
     <Button
-        android:id="@+id/btn_Gasto_guardar"
+        android:id="@+id/btn_Ingreso_guardar"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
@@ -80,7 +80,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EdText_Gasto_Hora" />
+        app:layout_constraintTop_toBottomOf="@+id/EdText_Ingreso_Hora" />
 
     <ImageView
         android:id="@+id/icon_pencil"
@@ -89,7 +89,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:src="@drawable/icon_pencil"
-        app:layout_constraintEnd_toStartOf="@+id/EdText_Gasto_descripcion"
+        app:layout_constraintEnd_toStartOf="@+id/EdText_Ingreso_descripcion"
         app:layout_constraintTop_toBottomOf="@+id/icon_remove" />
 
     <ImageView
@@ -99,7 +99,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:src="@drawable/icone_date"
-        app:layout_constraintEnd_toStartOf="@+id/EdText_Gasto_Fecha"
+        app:layout_constraintEnd_toStartOf="@+id/EdText_Ingreso_Fecha"
         app:layout_constraintTop_toBottomOf="@+id/icon_pencil" />
 
     <ImageView
@@ -109,7 +109,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:src="@drawable/icon_watch"
-        app:layout_constraintEnd_toStartOf="@+id/EdText_Gasto_Hora"
+        app:layout_constraintEnd_toStartOf="@+id/EdText_Ingreso_Hora"
         app:layout_constraintTop_toBottomOf="@+id/icon_date" />
 
     <ImageView
@@ -119,7 +119,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
         android:src="@drawable/icon_remove"
-        app:layout_constraintEnd_toStartOf="@+id/EdTxt_Gasto_cantidad"
+        app:layout_constraintEnd_toStartOf="@+id/EdTxt_Ingreso_cantidad"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

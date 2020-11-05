@@ -2,6 +2,7 @@ package com.example.proyectofinalprogra2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment__inicio.*
 
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         transaccion.addToBackStack(null)
         transaccion.commit()
     }
+
 
 
 }
