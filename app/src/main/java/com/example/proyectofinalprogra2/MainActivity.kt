@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         transaccion.commit()
         frgIngresos()
         frgGasto()
-        frgInicio()
         frgMovimientos()
+        frgInicio()
         btn_inicio.setOnClickListener{frgInicio()}
         btn_ingreso.setOnClickListener{ frgIngresos()}
         btn_gasto.setOnClickListener{frgGasto()}
