@@ -14,4 +14,7 @@
     <string name="txtV4">Saldo Actual:</string>
     <string name="txtV5">+</string>
     <string name="btn4_inicio">Inicio</string>
+    <string name="categoria">Categoria</string>
+    <string name="mes">Mes</string>
+    <string name="movimientos">MOVIMIENTOS</string>
 </resources>
