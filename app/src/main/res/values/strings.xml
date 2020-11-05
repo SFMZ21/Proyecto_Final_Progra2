@@ -17,4 +17,7 @@
     <string name="categoria">Categoria</string>
     <string name="mes">Mes</string>
     <string name="movimientos">MOVIMIENTOS</string>
+    <string name="frgMov_txv1">Movimientos</string>
+    <string name="frgMov_txv2">Mes</string>
+    <string name="frgMov_txv3">Categoría</string>
 </resources>

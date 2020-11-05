@@ -17,7 +17,7 @@
         <Button
             android:id="@+id/btn_movimientos"
             android:layout_width="110dp"
-            android:layout_height="80dp"
+            android:layout_height="0dp"
             android:layout_marginTop="2dp"
             android:background="@drawable/degradado3"
             android:drawableTop="@drawable/btn3_icon3"
@@ -36,7 +36,7 @@
         <Button
             android:id="@+id/btn_ingreso"
             android:layout_width="90dp"
-            android:layout_height="80dp"
+            android:layout_height="0dp"
             android:layout_marginTop="2dp"
             android:background="@drawable/degradado2"
             android:drawableTop="@drawable/btn1_icon1"
@@ -55,7 +55,7 @@
         <Button
             android:id="@+id/btn_inicio"
             android:layout_width="90dp"
-            android:layout_height="80dp"
+            android:layout_height="0dp"
             android:layout_marginTop="2dp"
             android:background="@drawable/degradados"
             android:drawableTop="@drawable/icon_home2"
@@ -73,7 +73,7 @@
         <Button
             android:id="@+id/btn_gasto"
             android:layout_width="90dp"
-            android:layout_height="80dp"
+            android:layout_height="0dp"
             android:layout_marginTop="2dp"
             android:background="@drawable/degradado4"
             android:drawableTop="@drawable/btn2_icon2"
