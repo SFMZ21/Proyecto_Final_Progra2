@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment__ingresos.*
+import kotlinx.android.synthetic.main.fragment__ingresos.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +30,7 @@ class fragment_Ingresos : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
@@ -34,9 +38,11 @@ class fragment_Ingresos : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__ingresos, container, false)
 
 
+        val view: View = inflater!!.inflate(R.layout.fragment__ingresos, container, false)
+        view.btn_Ingreso_guardar.setOnClickListener{income()}
+        return view
 
 
     }
@@ -60,4 +66,29 @@ class fragment_Ingresos : Fragment() {
                 }
             }
     }
-}
+
+
+    fun income(){
+        var ingreso : Int? = null
+        var descrip : String? = null
+        var fecha : String? = null
+        var hora : String? = null
+
+        if(EdTxt_Ingreso_cantidad.text.isBlank() || EdText_Ingreso_descripcion.text.isBlank() || EdText_Ingreso_Fecha.text.isBlank() || EdText_Ingreso_Hora.text.isBlank() ){
+            Toast.makeText(requireContext(), "Necesita llenar todos los campos", Toast.LENGTH_SHORT).show()
+        }else  {
+
+            ingreso = EdTxt_Ingreso_cantidad.text.toString().toInt()
+            descrip = EdText_Ingreso_descripcion.text.toString()
+            fecha = EdText_Ingreso_Fecha.text.toString()
+            hora = EdText_Ingreso_Hora.text.toString()
+            println(ingreso)
+            println(descrip)
+            println(fecha)
+            println(hora)
+            Toast.makeText(requireContext(), "Ingreso exitoso", Toast.LENGTH_SHORT).show()
+
+
+
+        }
+}}
