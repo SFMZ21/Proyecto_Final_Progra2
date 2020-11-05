@@ -6,12 +6,8 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment__gasto.*
-import kotlinx.android.synthetic.main.fragment__gasto.EdTxt_Ingreso_cantidad
 import kotlinx.android.synthetic.main.fragment__ingresos.*
-import kotlinx.android.synthetic.main.fragment__inicio.*
-import kotlinx.android.synthetic.main.fragment__gasto.EdText_Ingreso_Fecha as EdText_Ingreso_Fecha1
-import kotlinx.android.synthetic.main.fragment__ingresos.EdText_Ingreso_Hora as EdText_Ingreso_Hora1
-import kotlinx.android.synthetic.main.fragment__ingresos.EdText_Ingreso_descripcion as EdText_Ingreso_descripcion1
+
 
 class MainActivity : AppCompatActivity() {
     val manager = supportFragmentManager
@@ -60,20 +56,39 @@ class MainActivity : AppCompatActivity() {
 
     fun income(view: View){
 
-        val ingreso = EdTxt_Ingreso_cantidad!!.text.toString().toInt()
-        val descripcion = EdText_Ingreso_descripcion!!.text.toString()
-        val fecha = EdText_Ingreso_Fecha!!.text.toString()
-        val hora = EdText_Ingreso_Hora!!.text.toString()
+        val ingreso = EdTxt_Ingreso_cantidad.text.toString().toInt()
+        val descrip = EdText_Ingreso_descripcion.text.toString()
+        val fecha = EdText_Ingreso_Fecha.text.toString()
+        val hora = EdText_Ingreso_Hora.text.toString()
+
+        println(ingreso)
+        println(descrip)
+        println(fecha)
+        println(hora)
+
+        Toast.makeText(this, "Ingreso registrado con exito", Toast.LENGTH_SHORT).show()
+        frgInicio()
+
+
+
+
+    }
+
+    fun outcome(view: View){
+        val ingreso = EdTxt_Gasto_cantidad.text.toString().toInt()
+        val descrip = EdText_Gasto_descripcion.text.toString()
+        val fecha = EdText_Gasto_Fecha.text.toString()
+        val hora = EdText_Gasto_descripcion_Hora.text.toString()
 
         println(ingreso)
         println(descripcion)
         println(fecha)
         println(hora)
 
-        Toast.makeText(this, "Ingreso registrado con exito", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Gasto registrado con exito", Toast.LENGTH_SHORT).show()
+
 
 
     }
-
 
 }
