@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1077125176672",
+    "firebase_url": "https://mi-cartera-proxus.firebaseio.com",
+    "project_id": "mi-cartera-proxus",
+    "storage_bucket": "mi-cartera-proxus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077125176672:android:1cc9610da44b96eef75205",
+        "android_client_info": {
+          "package_name": "com.example.proyectofinalprogra2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077125176672-oca5po4uhceelfeio9u33b7ban5jqemh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.proyectofinalprogra2",
+            "certificate_hash": "d2d0c2b689843929d984fb4a46473c398159d0ef"
+          }
+        },
+        {
+          "client_id": "1077125176672-p29rlte90ue6p12f3na0afs5s9hrgiva.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxvwKR-DrZO9olyIuDaLOLgFyAOFxC4vc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077125176672-p29rlte90ue6p12f3na0afs5s9hrgiva.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

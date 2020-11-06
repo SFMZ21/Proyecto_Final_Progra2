@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment__ingresos.*
 import kotlinx.android.synthetic.main.fragment__ingresos.view.*
 
@@ -20,6 +21,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class fragment_Ingresos : Fragment() {
+
+    private val db = FirebaseFirestore.getInstance()
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -69,26 +73,11 @@ class fragment_Ingresos : Fragment() {
 
 
     fun income(){
-        var ingreso : Int? = null
-        var descrip : String? = null
-        var fecha : String? = null
-        var hora : String? = null
-
-        if(EdTxt_Ingreso_cantidad.text.isBlank() || EdText_Ingreso_descripcion.text.isBlank() || EdText_Ingreso_Fecha.text.isBlank() || EdText_Ingreso_Hora.text.isBlank() ){
-            Toast.makeText(requireContext(), "Necesita llenar todos los campos", Toast.LENGTH_SHORT).show()
-        }else  {
-
-            ingreso = EdTxt_Ingreso_cantidad.text.toString().toInt()
-            descrip = EdText_Ingreso_descripcion.text.toString()
-            fecha = EdText_Ingreso_Fecha.text.toString()
-            hora = EdText_Ingreso_Hora.text.toString()
-            println(ingreso)
-            println(descrip)
-            println(fecha)
-            println(hora)
-            Toast.makeText(requireContext(), "Ingreso exitoso", Toast.LENGTH_SHORT).show()
-
-
+                val descrip = EdText_Ingreso_descripcion.text.toString()
+                db.collection("Transacciones").document(descrip).set(
+                    hashMapOf("monto" to EdTxt_Ingreso_cantidad.text.toString(),"descripcion" to EdText_Ingreso_descripcion.text.toString(),
+                    "fecha" to EdText_Ingreso_Fecha.text.toString() , "hora" to EdText_Ingreso_Hora.text.toString())
+                )
 
         }
-}}
+}

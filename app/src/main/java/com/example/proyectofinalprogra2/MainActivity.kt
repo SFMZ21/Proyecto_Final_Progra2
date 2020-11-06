@@ -2,6 +2,7 @@ package com.example.proyectofinalprogra2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         btn_ingreso.setOnClickListener{ frgIngresos()}
         btn_gasto.setOnClickListener{frgGasto()}
         btn_movimientos.setOnClickListener{frgMovimientos()}
+
+
+
     }
 
     fun frgInicio(){
