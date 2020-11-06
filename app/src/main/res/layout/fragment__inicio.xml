@@ -11,37 +11,40 @@
         android:id="@+id/tituloIngreso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Balance Mensual "
+        android:layout_marginTop="25dp"
+        android:text="@string/frgInicio_txv1"
         android:textColor="#242945"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/frgInit_SpinTipo" />
 
     <TextView
-        android:id="@+id/textV3"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView6"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/txtV1"
+        android:text="@string/txtV4"
+        android:textAlignment="textEnd"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textV4"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-condensed"
         android:text="@string/txtV2"
+        android:textAlignment="textEnd"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -50,12 +53,13 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-condensed"
         android:text="@string/txtV3"
+        android:textAlignment="textEnd"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -63,128 +67,139 @@
         app:layout_constraintTop_toBottomOf="@+id/textV4" />
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="30dp"
+        android:id="@+id/textV3"
+        android:layout_width="110dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/txtV4"
+        android:text="@string/txtV1"
+        android:textAlignment="textEnd"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/frgInicio_SpnAnio" />
 
-    <TextView
-        android:id="@+id/txt_frg1_ingreso"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/frgInit_SpinTipo"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="140dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/textV3"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:entries="@array/salida_entrada"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txt_frg1_saldoAnterior"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/frgInicio_SpnAnio"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="30dp"
-        android:textColor="@android:color/background_dark"
-        app:layout_constraintStart_toEndOf="@+id/textV4"
-        app:layout_constraintTop_toBottomOf="@+id/txt_frg1_ingreso" />
-
-    <TextView
-        android:id="@+id/txt_frg1_gasto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="30dp"
-        android:textColor="@android:color/background_dark"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/txt_frg1_saldoAnterior" />
-
-    <TextView
-        android:id="@+id/txt_frg1_saldoActual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/txt_frg1_gasto" />
-
-    <TextView
-        android:id="@+id/txt_frg1_mes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="#2E2727"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintStart_toEndOf="@+id/frgInicio_SpnMes"
+        app:layout_constraintTop_toBottomOf="@+id/tituloIngreso" />
+
+    <Spinner
+        android:id="@+id/frgInicio_SpnMes"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:entries="@array/meses"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloIngreso" />
 
-    <TextView
-        android:id="@+id/txt_add"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="115dp"
-        android:layout_marginEnd="70dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="@string/txtV5"
-        android:textColor="#8BC34A"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/frgInic_description1"
+        android:src="@drawable/frg_inicio_add_green"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/frgInicio_SpnAnio" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/frgInic_description1"
+        android:src="@drawable/frg_inicio_add_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/frgInic_description2"
+        android:src="@drawable/frg_inicio_remove_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/frgInic_description3"
+        android:src="@drawable/frg_inicio_equal_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
-        android:id="@+id/txt_add2"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="70dp"
-        android:text="@string/txtV5"
-        android:textColor="#8BC34A"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_add" />
+        android:layout_height="24dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/frgInic_txvIngreso"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/frgInicio_SpnAnio" />
 
     <TextView
-        android:id="@+id/txt"
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="70dp"
-        android:text="@string/Text"
-        android:textColor="#F44336"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_add2" />
+        android:layout_height="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/frgInic_txvSaldo"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/txt_igual"
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="70dp"
-        android:text="@string/Text1"
-        android:textColor="#3F51B5"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt" />
+        android:layout_height="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/frgInic_txvGasto"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/frgInic_txvSaldo"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
