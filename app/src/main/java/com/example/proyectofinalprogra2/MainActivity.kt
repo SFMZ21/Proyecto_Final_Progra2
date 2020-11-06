@@ -2,9 +2,9 @@ package com.example.proyectofinalprogra2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment__inicio.*
+
 
 class MainActivity : AppCompatActivity() {
     val manager = supportFragmentManager
@@ -24,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         btn_ingreso.setOnClickListener{ frgIngresos()}
         btn_gasto.setOnClickListener{frgGasto()}
         btn_movimientos.setOnClickListener{frgMovimientos()}
+
+
+
     }
 
     fun frgInicio(){
@@ -52,5 +55,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    }
 
-}
+

@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment__ingresos.*
+import kotlinx.android.synthetic.main.fragment__ingresos.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,6 +21,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class fragment_Ingresos : Fragment() {
+
+    private val db = FirebaseFirestore.getInstance()
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -27,6 +34,7 @@ class fragment_Ingresos : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
@@ -34,7 +42,13 @@ class fragment_Ingresos : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__ingresos, container, false)
+
+
+        val view: View = inflater!!.inflate(R.layout.fragment__ingresos, container, false)
+        view.btn_Ingreso_guardar.setOnClickListener{income()}
+        return view
+
+
     }
 
     companion object {
@@ -56,4 +70,14 @@ class fragment_Ingresos : Fragment() {
                 }
             }
     }
+
+
+    fun income(){
+                val descrip = EdText_Ingreso_descripcion.text.toString()
+                db.collection("Transacciones").document(descrip).set(
+                    hashMapOf("monto" to EdTxt_Ingreso_cantidad.text.toString(),"descripcion" to EdText_Ingreso_descripcion.text.toString(),
+                    "fecha" to EdText_Ingreso_Fecha.text.toString() , "hora" to EdText_Ingreso_Hora.text.toString())
+                )
+
+        }
 }
