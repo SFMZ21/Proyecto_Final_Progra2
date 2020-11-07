@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment__gasto.*
 import kotlinx.android.synthetic.main.fragment__gasto.view.*
 import kotlinx.android.synthetic.main.fragment__ingresos.*
@@ -22,6 +23,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class fragment_Gasto : Fragment() {
+
+    private val db = FirebaseFirestore.getInstance()
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -66,25 +70,24 @@ class fragment_Gasto : Fragment() {
     }
 
     fun outcome() {
-        var egreso: Int? = null
-        var descrip: String? = null
-        var fecha: String? = null
-        var hora: String? = null
+
+
+        val mes: String = EdText_Gasto_Fecha.text.toString().substring(3,5)
 
         if (EdTxt_Gasto_cantidad.text.isBlank() || EdText_Gasto_descripcion.text.isBlank() || EdText_Gasto_Fecha.text.isBlank() || EdText_Gasto_descripcion_Hora.text.isBlank()) {
             Toast.makeText(requireContext(), "Necesita llenar todos los campos", Toast.LENGTH_SHORT)
                 .show()
         } else {
 
-            egreso = EdTxt_Gasto_cantidad.text.toString().toInt()
-            descrip = EdText_Gasto_descripcion.text.toString()
-            fecha = EdText_Gasto_Fecha.text.toString()
-            hora = EdText_Gasto_descripcion_Hora.text.toString()
-            println(egreso)
-            println(descrip)
-            println(fecha)
-            println(hora)
-            Toast.makeText(requireContext(), "Egreso exitoso", Toast.LENGTH_SHORT).show()
+            db.collection("Transacciones").document().set(
+                hashMapOf(
+                    "monto" to EdTxt_Gasto_cantidad.text.toString(),
+                    "descripcion" to EdText_Gasto_descripcion.text.toString(),
+                    "fecha" to EdText_Gasto_Fecha.text.toString(),
+                    "hora" to EdText_Gasto_descripcion_Hora.text.toString(),
+                    "tag" to "Gasto",
+                    "mes" to mes
+                ))
 
 
         }

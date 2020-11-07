@@ -1,14 +1,19 @@
 package com.example.proyectofinalprogra2
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment__gasto.*
 import kotlinx.android.synthetic.main.fragment__ingresos.*
 import kotlinx.android.synthetic.main.fragment__ingresos.view.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,11 +78,46 @@ class fragment_Ingresos : Fragment() {
 
 
     fun income(){
-                val descrip = EdText_Ingreso_descripcion.text.toString()
-                db.collection("Transacciones").document(descrip).set(
-                    hashMapOf("monto" to EdTxt_Ingreso_cantidad.text.toString(),"descripcion" to EdText_Ingreso_descripcion.text.toString(),
-                    "fecha" to EdText_Ingreso_Fecha.text.toString() , "hora" to EdText_Ingreso_Hora.text.toString())
-                )
 
-        }
+
+        db.collection("Transacciones")
+            .whereEqualTo("tag", "Gasto").whereEqualTo("mes","05")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                    tituloIngreso.setText(document.data?.get("descripcion").toString())
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
+
+        val mes: String = EdText_Ingreso_Fecha.text.toString().substring(3,5)
+        if (EdTxt_Ingreso_cantidad.text.isBlank() || EdText_Ingreso_descripcion.text.isBlank() || EdText_Ingreso_Fecha.text.isBlank() || EdText_Ingreso_Hora.text.isBlank()) {
+            Toast.makeText(requireContext(), "Necesita llenar todos los campos", Toast.LENGTH_SHORT)
+                .show()
+        } else {
+
+            db.collection("Transacciones").document().set(
+                hashMapOf(
+                    "monto" to EdTxt_Ingreso_cantidad.text.toString(),
+                    "descripcion" to EdText_Ingreso_descripcion.text.toString(),
+                    "fecha" to EdText_Ingreso_Fecha.text.toString(),
+                    "hora" to EdText_Ingreso_Hora.text.toString(),
+                    "tag" to "Ingreso",
+                    "mes" to mes
+                ))
+
+            Toast.makeText(requireContext(), "Ingreso exitoso", Toast.LENGTH_SHORT)
+                .show()
+
+
+
+
+
+
+    }
+
+}
 }
