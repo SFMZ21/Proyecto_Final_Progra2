@@ -48,7 +48,6 @@
         android:layout_marginStart="3dp"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="5dp"
-        android:entries="@array/meses"
         app:layout_constraintEnd_toStartOf="@+id/frgMov_SpnCat"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +78,6 @@
         app:layout_constraintTop_toBottomOf="@+id/frgMov_SpnCat" />
 
     <ScrollView
-        android:id="@+id/frgMov_ScrollContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="3dp"
@@ -94,47 +92,13 @@
         android:scrollbarTrackVertical="@drawable/pista_scroll"
         android:scrollbarSize="10dp">
         <LinearLayout
+            android:id="@+id/frgMov_ScrollContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/background_scroll_view">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="30dp"
-                android:text="relleno"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="30dp"
-                android:text="relleno"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="30dp"
-                android:text="relleno"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="30dp"
-                android:text="relleno"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="30dp"
-                android:text="relleno"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="30dp"
-                android:text="relleno"/>
+
             
         </LinearLayout>
 
