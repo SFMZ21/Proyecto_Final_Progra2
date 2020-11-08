@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.api.Distribution
 import com.google.firebase.firestore.FirebaseFirestore
 import org.w3c.dom.Text
@@ -29,23 +31,9 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
     private val db = FirebaseFirestore.getInstance()
 
     //Variables
-    lateinit var lin_layout : LinearLayout
-    lateinit var txtView1 : TextView
+
     lateinit var spinner : Spinner
-    var arr_txv = ArrayList<TextView>()
-
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var recyclerView : RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,9 +41,13 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
     ): View? {
         val view: View = inflater!!.inflate(R.layout.fragment__movimientos, container, false)
 
-        lin_layout = view.findViewById(R.id.frgMov_ScrollContainer)
-        txtView1 = TextView(requireContext())
-        txtView1.gravity = 1
+        recyclerView = view.findViewById(R.id.recycler)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
+        //initData()
+
+        recyclerView.adapter = ItemAdapter(initData())
 
         // creations
         spinner = view.findViewById<Spinner>(R.id.frgMov_SpnMes)
@@ -71,43 +63,49 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
 
     }
 
+    private fun initData() : List<Model>{
+        var itemList : List<Model> = ArrayList()
+
+        db.collection("Transacciones")
+            .whereEqualTo("tag", "Ingreso")
+            .get()
+            .addOnSuccessListener { document ->
+                for (doc in document){
+
+                    var modelo = Model(
+                        doc.data.get("tag").toString(),
+                        doc.data.get("descripcion").toString(),
+                        doc.data.get("monto").toString(),
+                        doc.data.get("fecha").toString(),
+                        doc.data.get("hora").toString())
+
+
+                    (itemList as ArrayList<Model>).add(modelo)
+                }
+            }
+        /**
+        (itemList as ArrayList<Model>).add(Model("1", "hola", "2000", "12/20/2020", "14:12"))
+        (itemList as ArrayList<Model>).add(Model("2", "hola", "2000", "12/20/2020", "14:12"))
+        (itemList as ArrayList<Model>).add(Model("3", "hola", "2000", "12/20/2020", "14:12"))
+        (itemList as ArrayList<Model>).add(Model("4", "hola", "2000", "12/20/2020", "14:12"))
+        (itemList as ArrayList<Model>).add(Model("5", "hola", "2000", "12/20/2020", "14:12"))
+        (itemList as ArrayList<Model>).add(Model("6", "hola", "2000", "12/20/2020", "14:12"))
+        (itemList as ArrayList<Model>).add(Model("7", "hola", "2000", "12/20/2020", "14:12"))
+        (itemList as ArrayList<Model>).add(Model("8", "hola", "2000", "12/20/2020", "14:12"))
+        **/
+
+        for (item in itemList){
+            println("ITEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM")
+            println("${item}")
+        }
+        return itemList
+    }
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
     }
-
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        lin_layout.removeAllViews()
-
         listarTemp(position.toString())
-
-        for (txv in arr_txv){
-            lin_layout.addView(txv)
-        }
-
-        //txtView1.text = position.toString()
-        //lin_layout.addView(txtView1)
     }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Fragment_Movimientos.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Fragment_Movimientos().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
-
 
 //    fun listar(tag: String, mes: String) : ArrayList<String> {
 //        var descriptions = ArrayList<String>()
@@ -138,7 +136,7 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
 
                         val text = TextView(requireContext())
                         text.text = document.data!!.get("descripcion").toString()
-                        lin_layout.addView(text)
+                        //lin_layout.addView(text)
                     }
 
                 }
