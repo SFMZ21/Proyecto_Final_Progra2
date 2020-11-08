@@ -1,6 +1,7 @@
 package com.example.proyectofinalprogra2
 
 import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -63,8 +64,9 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
 
     }
 
-    private fun initData() : List<Model>{
+     fun initData() : List<Model>{
         var itemList : List<Model> = ArrayList()
+        var modelo : Model
 
         db.collection("Transacciones")
             .whereEqualTo("tag", "Ingreso")
@@ -72,33 +74,29 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
             .addOnSuccessListener { document ->
                 for (doc in document){
 
-                    var modelo = Model(
-                        doc.data.get("tag").toString(),
-                        doc.data.get("descripcion").toString(),
-                        doc.data.get("monto").toString(),
-                        doc.data.get("fecha").toString(),
-                        doc.data.get("hora").toString())
+                    Log.d(TAG, "DocumentSnapshot data: ${doc.data["tag"]}")
 
+                     modelo = Model(
+                        doc.data["tag"].toString(),
+                         doc.data["descripcion"].toString(),
+                         doc.data["monto"].toString(),
+                         doc.data["fecha"].toString(),
+                         doc.data["hora"].toString())
 
                     (itemList as ArrayList<Model>).add(modelo)
                 }
             }
-        /**
-        (itemList as ArrayList<Model>).add(Model("1", "hola", "2000", "12/20/2020", "14:12"))
-        (itemList as ArrayList<Model>).add(Model("2", "hola", "2000", "12/20/2020", "14:12"))
-        (itemList as ArrayList<Model>).add(Model("3", "hola", "2000", "12/20/2020", "14:12"))
-        (itemList as ArrayList<Model>).add(Model("4", "hola", "2000", "12/20/2020", "14:12"))
-        (itemList as ArrayList<Model>).add(Model("5", "hola", "2000", "12/20/2020", "14:12"))
-        (itemList as ArrayList<Model>).add(Model("6", "hola", "2000", "12/20/2020", "14:12"))
-        (itemList as ArrayList<Model>).add(Model("7", "hola", "2000", "12/20/2020", "14:12"))
-        (itemList as ArrayList<Model>).add(Model("8", "hola", "2000", "12/20/2020", "14:12"))
-        **/
-
-        for (item in itemList){
-            println("ITEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM")
-            println("${item}")
-        }
-        return itemList
+         ///**
+         (itemList as ArrayList<Model>).add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
+         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
+         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
+         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
+         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
+         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
+         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
+         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
+         // **/
+         return itemList
     }
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
