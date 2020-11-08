@@ -50,7 +50,7 @@ class fragment_Ingresos : Fragment() {
 
 
         val view: View = inflater!!.inflate(R.layout.fragment__ingresos, container, false)
-        view.btn_Ingreso_guardar.setOnClickListener{income()}
+        view.btn_Ingreso_guardar.setOnClickListener { income() }
         return view
 
 
@@ -77,11 +77,11 @@ class fragment_Ingresos : Fragment() {
     }
 
 
-    fun income(){
+    fun income() {
 
 
         db.collection("Transacciones")
-            .whereEqualTo("tag", "Gasto").whereEqualTo("mes","05")
+            .whereEqualTo("tag", "Ingreso").whereEqualTo("mes", "11")
             .get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
@@ -91,33 +91,40 @@ class fragment_Ingresos : Fragment() {
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
+
+/*
+                val mes: String = EdText_Ingreso_Fecha.text.toString().substring(3, 5)
+                if (EdTxt_Ingreso_cantidad.text.isBlank() || EdText_Ingreso_descripcion.text.isBlank() || EdText_Ingreso_Fecha.text.isBlank() || EdText_Ingreso_Hora.text.isBlank()) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Necesita llenar todos los campos",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                } else {
+
+                    db.collection("Transacciones").document().set(
+                        hashMapOf(
+                            "monto" to EdTxt_Ingreso_cantidad.text.toString(),
+                            "descripcion" to EdText_Ingreso_descripcion.text.toString(),
+                            "fecha" to EdText_Ingreso_Fecha.text.toString(),
+                            "hora" to EdText_Ingreso_Hora.text.toString(),
+                            "tag" to "Ingreso",
+                            "mes" to mes
+                        )
+                    )
+
+                    Toast.makeText(requireContext(), "Ingreso exitoso", Toast.LENGTH_SHORT)
+                        .show()
+
+                    EdTxt_Ingreso_cantidad.setText("")
+                    EdText_Ingreso_descripcion.setText("")
+                    EdText_Ingreso_Fecha.setText("")
+                    EdText_Ingreso_Hora.setText("")
+
+
+                }*/
+
             }
-
-        val mes: String = EdText_Ingreso_Fecha.text.toString().substring(3,5)
-        if (EdTxt_Ingreso_cantidad.text.isBlank() || EdText_Ingreso_descripcion.text.isBlank() || EdText_Ingreso_Fecha.text.isBlank() || EdText_Ingreso_Hora.text.isBlank()) {
-            Toast.makeText(requireContext(), "Necesita llenar todos los campos", Toast.LENGTH_SHORT)
-                .show()
-        } else {
-
-            db.collection("Transacciones").document().set(
-                hashMapOf(
-                    "monto" to EdTxt_Ingreso_cantidad.text.toString(),
-                    "descripcion" to EdText_Ingreso_descripcion.text.toString(),
-                    "fecha" to EdText_Ingreso_Fecha.text.toString(),
-                    "hora" to EdText_Ingreso_Hora.text.toString(),
-                    "tag" to "Ingreso",
-                    "mes" to mes
-                ))
-
-            Toast.makeText(requireContext(), "Ingreso exitoso", Toast.LENGTH_SHORT)
-                .show()
-
-
-
-
-
-
     }
-
-}
 }
