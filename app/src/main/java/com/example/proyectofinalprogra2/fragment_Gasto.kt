@@ -89,6 +89,12 @@ class fragment_Gasto : Fragment() {
                     "mes" to mes
                 ))
 
+            Toast.makeText(requireContext(), "Gasto realizado", Toast.LENGTH_SHORT)
+                .show()
+            EdTxt_Gasto_cantidad.setText("")
+            EdText_Gasto_descripcion.setText("")
+            EdText_Gasto_Fecha.setText("")
+            EdText_Gasto_descripcion_Hora.setText("")
 
         }
 

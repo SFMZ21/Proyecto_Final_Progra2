@@ -26,6 +26,7 @@ class ItemAdapter(initData: List<Model>) : RecyclerView.Adapter<ItemAdapter.View
 
     }
 
+
     override fun getItemCount(): Int {
         return itemList1.size
     }
