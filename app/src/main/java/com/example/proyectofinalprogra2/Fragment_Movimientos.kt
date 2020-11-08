@@ -99,6 +99,7 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
         TODO("Not yet implemented")
     }
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        recyclerView.removeAllViewsInLayout()
         if (position.toString().length < 2){
             listarTemp("0$position.toString()","Gasto")
         }else{
