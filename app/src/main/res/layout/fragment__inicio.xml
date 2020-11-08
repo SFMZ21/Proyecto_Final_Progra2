@@ -70,7 +70,7 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/frgInic_description1"
         android:src="@drawable/frg_inicio_add_green"
@@ -83,7 +83,7 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="12dp"
         android:contentDescription="@string/frgInic_description2"
         android:src="@drawable/frg_inicio_remove_red"
@@ -111,35 +111,30 @@
         android:id="@+id/ingresos_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="10dp"
+        android:text="Hey"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.64"
-        app:layout_constraintStart_toEndOf="@+id/textV3"
-        app:layout_constraintTop_toBottomOf="@+id/tituloIngreso"
-        app:layout_constraintVertical_bias="0.283" />
+        app:layout_constraintTop_toBottomOf="@+id/tituloIngreso" />
 
     <TextView
         android:id="@+id/egreso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginBottom="252dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="10dp"
+        android:text="Hey"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/ingresos_total"
-        app:layout_constraintVertical_bias="0.42" />
+        app:layout_constraintTop_toBottomOf="@+id/ingresos_total" />
 
     <TextView
         android:id="@+id/actual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="12dp"
+        android:text="hey"
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="0.649"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/egreso"
-        app:layout_constraintVertical_bias="0.156" />
+        app:layout_constraintTop_toBottomOf="@+id/egreso" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
