@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.api.Distribution
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment__movimientos.*
 import org.w3c.dom.Text
 
 
@@ -47,8 +48,6 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         initData()
-
-
 
         // creations
         spinner = view.findViewById<Spinner>(R.id.frgMov_SpnMes)
@@ -100,31 +99,38 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
     }
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         recyclerView.removeAllViewsInLayout()
-        if (position.toString().length < 2){
-            listarTemp("0$position.toString()","Gasto")
-        }else{
-            listarTemp(position.toString(),"Gasto")
+
+        if (chckIngreso.isChecked && !chckGasto.isChecked){
+            //Toast.makeText(requireContext(), "Ingreso", Toast.LENGTH_SHORT).show()
+            println("****************************************************INGRESO***************************************************")
+            if (position.toString().length < 2){
+                listarTemp("0$position","Ingreso")
+            }else{
+                listarTemp(position.toString(),"Ingreso")
+            }
+        }
+
+        if (chckGasto.isChecked && !chckIngreso.isChecked){
+            println("****************************************************GASTO***************************************************$position")
+            if (position.toString().length < 2){
+                listarTemp("0$position","Gasto")
+            }else{
+                listarTemp(position.toString(),"Gasto")
+            }
+        }
+
+        if (chckGasto.isChecked && chckIngreso.isChecked){
+            println("****************************************************GASTO e INGRESO***************************************************$position")
+            if (position.toString().length < 2){
+                listarTempDouble("0$position")
+            }else{
+                listarTempDouble(position.toString())
+            }
         }
 
     }
 
-//    fun listar(tag: String, mes: String) : ArrayList<String> {
-//        var descriptions = ArrayList<String>()
-//        db.collection("Transacciones")
-//            //.whereEqualTo("tag", tag)
-//            .whereEqualTo("mes", mes)
-//            .get()
-//            .addOnSuccessListener { documents ->
-//                for (document in documents){
-//                    descriptions.add(document.data?.get("descripcion").toString())
-//                    println("DATOS*********************** ${document.data?.get("descripcion").toString()}")
-//                }
-//            }
-//
-//        return descriptions
-//    }
-
-    fun listarTemp(mes : String , tag : String){
+    fun listarTempDouble(mes : String){
         var itemList : List<Model> = ArrayList()
         var tag:String = ""
         var descr:String = ""
@@ -132,14 +138,49 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
         var fecha :String = ""
         var hora :String = ""
 
+
+        println("mes************************************$mes")
+
         db.collection("Transacciones")
-            .whereEqualTo("tag", "Gasto")
-            .whereEqualTo("mes","05")
+            .whereEqualTo("mes", mes)
             .get()
             .addOnSuccessListener { document ->
                 for (doc in document){
 
-                    Log.d(TAG, "DocumentSnapshot data: ${doc.data["tag"]}")
+                    //Log.d(TAG, "DocumentSnapshot data: ${doc.data["tag"]}")
+
+                    tag=doc.data["tag"].toString()
+                    descr = doc.data.get("descripcion").toString()
+                    monto= doc.data["monto"].toString()
+                    fecha = doc.data["fecha"].toString()
+                    hora = doc.data["hora"].toString()
+                    (itemList as ArrayList<Model>).add(Model(tag, descr, monto, fecha, hora))
+                    recyclerView.adapter = ItemAdapter(itemList)
+
+                }
+            }
+
+    }
+
+    fun listarTemp(mes : String , ttaagg : String){
+        var itemList : List<Model> = ArrayList()
+        var tag:String = ""
+        var descr:String = ""
+        var monto:String = ""
+        var fecha :String = ""
+        var hora :String = ""
+
+        println("tag************************************$ttaagg")
+        println("mes************************************$mes")
+
+        db.collection("Transacciones")
+            .whereEqualTo("tag", ttaagg)
+            .whereEqualTo("mes", mes)
+            .get()
+            .addOnSuccessListener { document ->
+                for (doc in document){
+
+                    //Log.d(TAG, "DocumentSnapshot data: ${doc.data["tag"]}")
 
                     tag=doc.data["tag"].toString()
                     descr = doc.data.get("descripcion").toString()
