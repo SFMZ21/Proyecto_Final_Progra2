@@ -54,7 +54,7 @@
         android:layout_marginEnd="72dp"
         android:layout_marginBottom="12dp"
         android:ems="10"
-        android:hint="Fecha"
+        android:hint="DD/MM/AA"
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/EdText_Gasto_descripcion_Hora"
         app:layout_constraintEnd_toEndOf="parent"

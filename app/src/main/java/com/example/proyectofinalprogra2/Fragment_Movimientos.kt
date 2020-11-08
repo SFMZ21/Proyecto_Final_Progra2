@@ -32,7 +32,7 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
     private val db = FirebaseFirestore.getInstance()
 
     //Variables
-
+    private lateinit var test:String
     lateinit var spinner : Spinner
     lateinit var recyclerView : RecyclerView
 
@@ -46,9 +46,9 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        //initData()
+        initData()
 
-        recyclerView.adapter = ItemAdapter(initData())
+
 
         // creations
         spinner = view.findViewById<Spinner>(R.id.frgMov_SpnMes)
@@ -64,45 +64,47 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
 
     }
 
-     fun initData() : List<Model>{
+     fun initData() {
         var itemList : List<Model> = ArrayList()
-        var modelo : Model
+         var tag:String = ""
+          var descr:String = ""
+            var monto:String = ""
+           var fecha :String = ""
+          var hora :String = ""
 
         db.collection("Transacciones")
-            .whereEqualTo("tag", "Ingreso")
+            .whereEqualTo("tag", "Gasto")
             .get()
             .addOnSuccessListener { document ->
                 for (doc in document){
 
                     Log.d(TAG, "DocumentSnapshot data: ${doc.data["tag"]}")
 
-                     modelo = Model(
-                        doc.data["tag"].toString(),
-                         doc.data["descripcion"].toString(),
-                         doc.data["monto"].toString(),
-                         doc.data["fecha"].toString(),
-                         doc.data["hora"].toString())
+                    tag=doc.data["tag"].toString()
+                    descr = doc.data.get("descripcion").toString()
+                    monto= doc.data["monto"].toString()
+                    fecha = doc.data["fecha"].toString()
+                    hora = doc.data["hora"].toString()
+                    (itemList as ArrayList<Model>).add(Model(tag, descr, monto, fecha, hora))
+                    recyclerView.adapter = ItemAdapter(itemList)
 
-                    (itemList as ArrayList<Model>).add(modelo)
                 }
             }
-         ///**
-         (itemList as ArrayList<Model>).add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
-         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
-         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
-         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
-         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
-         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
-         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
-         itemList.add(Model("Ingreso", "hola", "2000", "12/20/2020", "14:12"))
-         // **/
-         return itemList
+
+
+
+
     }
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
     }
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        listarTemp(position.toString())
+        if (position.toString().length < 2){
+            listarTemp("0$position.toString()","Gasto")
+        }else{
+            listarTemp(position.toString(),"Gasto")
+        }
+
     }
 
 //    fun listar(tag: String, mes: String) : ArrayList<String> {
@@ -121,26 +123,32 @@ class Fragment_Movimientos : Fragment(), AdapterView.OnItemSelectedListener {
 //        return descriptions
 //    }
 
-    fun listarTemp(mes : String){
+    fun listarTemp(mes : String , tag : String){
+        var itemList : List<Model> = ArrayList()
+        var tag:String = ""
+        var descr:String = ""
+        var monto:String = ""
+        var fecha :String = ""
+        var hora :String = ""
+
         db.collection("Transacciones")
-            .whereEqualTo("tag", "Ingreso")
-            //.whereEqualTo("mes", mes)
+            .whereEqualTo("tag", "Gasto")
+            .whereEqualTo("mes","05")
             .get()
-            .addOnSuccessListener { documents ->
+            .addOnSuccessListener { document ->
+                for (doc in document){
 
-                for (document in documents){
+                    Log.d(TAG, "DocumentSnapshot data: ${doc.data["tag"]}")
 
-                    if (!TextUtils.isEmpty(document.data?.get("descripcion").toString())){
-
-                        val text = TextView(requireContext())
-                        text.text = document.data!!.get("descripcion").toString()
-                        //lin_layout.addView(text)
-                    }
+                    tag=doc.data["tag"].toString()
+                    descr = doc.data.get("descripcion").toString()
+                    monto= doc.data["monto"].toString()
+                    fecha = doc.data["fecha"].toString()
+                    hora = doc.data["hora"].toString()
+                    (itemList as ArrayList<Model>).add(Model(tag, descr, monto, fecha, hora))
+                    recyclerView.adapter = ItemAdapter(itemList)
 
                 }
-            }
-            .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting documents: ", exception)
             }
 
     }
