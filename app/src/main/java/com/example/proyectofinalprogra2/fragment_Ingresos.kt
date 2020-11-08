@@ -79,20 +79,6 @@ class fragment_Ingresos : Fragment() {
 
     fun income() {
 
-
-        db.collection("Transacciones")
-            .whereEqualTo("tag", "Ingreso").whereEqualTo("mes", "11")
-            .get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
-                    tituloIngreso.setText(document.data?.get("descripcion").toString())
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents: ", exception)
-
-/*
                 val mes: String = EdText_Ingreso_Fecha.text.toString().substring(3, 5)
                 if (EdTxt_Ingreso_cantidad.text.isBlank() || EdText_Ingreso_descripcion.text.isBlank() || EdText_Ingreso_Fecha.text.isBlank() || EdText_Ingreso_Hora.text.isBlank()) {
                     Toast.makeText(
@@ -123,8 +109,7 @@ class fragment_Ingresos : Fragment() {
                     EdText_Ingreso_Hora.setText("")
 
 
-                }*/
+                }
 
             }
     }
-}
